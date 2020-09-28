@@ -1,0 +1,23 @@
+- defaults:
+    link:
+      relink: true
+      create: true
+
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.fehbg:
+    ~/.ideavimrc:
+    ~/.vimrc:
+    ~/.zshrc:
+    ~/.config/bottom: config/bottom/
+    ~/.config/cava: config/cava/
+    ~/.config/neofetch: config/neofetch/
+    ~/.config/regolith: config/regolith/
+    ~/.config/rofi: config/rofi/
+    ~/.config/kitty: config/kitty/
+    ~/bin:
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
