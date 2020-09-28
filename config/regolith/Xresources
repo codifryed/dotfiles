@@ -1,0 +1,18 @@
+! gnome.wallpaper:	/usr/share/backgrounds/brad-huchteman-stone-mountain.jpg
+i3-wm.bar.position:	top
+i3-wm.bar.background.color:     #1F243000
+i3-wm.bar.workspace.focused.background.color:   #BFBAB000
+i3-wm.bar.workspace.active.background.color:    #BFBAB000
+i3-wm.bar.workspace.inactive.background.color:  #BFBAB000
+i3-wm.bar.workspace.focused.border.color:       #BFBAB000
+i3-wm.bar.workspace.active.border.color:        #BFBAB000
+i3-wm.bar.workspace.inactive.border.color:      #BFBAB000
+i3-wm.client.focused.color.border:              #00FF00
+i3-wm.gaps.inner.size:	20
+i3-wm.gaps.outer.size:	0
+i3-wm.gaps.smart:       on
+i3-wm.bar.trayoutput:	primary
+i3-wm.bar.font:         
+! 3xrocks.date.format2:	%d.%m.
+! i3-wm.program.lock:     i3lock-fancy
+i3-wm.program.1:    sleep 2 && feh --bg-fill --no-xinerama ~/Pictures/backgrounds/anime/shell3.png

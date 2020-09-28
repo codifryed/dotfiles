@@ -1,0 +1,19 @@
+let mapleader = " "
+" :actionlist for all commands
+set incsearch " Highlight search results when typing
+set hlsearch " Highlight search results
+set scrolloff=4 " Display at least 3 lines around you cursor
+set ignorecase " Ignore case when searching
+set smartcase " If there is an uppercase in your search term
+
+nnoremap <leader>qf :action ShowIntentionActions<CR>
+nnoremap <leader>fix :action ShowIntentionActions<CR>
+nnoremap <leader>rn :action RenameElement<CR>
+nnoremap <leader>rp :action IntroduceParameter<CR>
+nnoremap <leader>fu :action FindUsages<CR>
+nnoremap <leader>df :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>go :action GotoDeclaration<CR>
+
+" Misc
+nnoremap <leader>vr :source ~/.ideavimrc<CR>
+noremap <leader>vr :source ~/.ideavimrc<CR>
