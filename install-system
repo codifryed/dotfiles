@@ -1,0 +1,154 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Ubuntu Stuff (20.04 LTS)
+
+#########################################################
+# APT programs:
+sudo apt install \
+  wget \
+  zsh \
+  git \
+  vim \
+  net-tools \
+  gufw \
+  gzip \
+  gparted \
+  git \
+  gcc \
+  python3 \
+  p7zip \
+  kitty \
+  aspell-de \
+  neofetch \
+  lolcat \
+  hollywood \
+  cava \
+  cmatrix \
+  lm-sensors \
+  dos2unix \
+  usb-creator-common \
+  audacity \
+  filezilla \
+  thunderbird \
+  linux-tools-generic \
+  linux-headers-generic \
+  ubuntu-restricted-extras \
+  unrar \
+  rar \
+  libdvd-pkg
+
+#########################################################
+# SNAP Programs:
+sudo snap install --classic \
+  code \
+  deja-dup \
+  foobar2000 \
+  gitkraken \
+  intellij-idea-ultimate \
+  node \
+  pycharm-community \
+  skype
+
+sudo snap install \
+  gimp \
+  htop \
+  inkdrop \
+  keepassxc \
+  libreoffice \
+  onlyoffice-desktopeditors \
+  spotify \
+  vlc \
+  youtube-dl
+
+
+#########################################################
+# external APT PPAs:
+
+## Google Chrome
+if ! [ -x "$(command -v google-chrome)" ]; then
+  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/Downloads
+  sudo apt install ~/Downloads/google-chrome-stable_current_amd64.deb
+fi
+
+## Docker
+if ! [ -x "$(command -v docker)" ]; then
+  sudo apt install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo apt-key fingerprint 0EBFCD88
+  sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+  sudo apt update
+  sudo apt install docker-ce docker-ce-cli containerd.io
+fi
+
+## Azul Java
+if ! [ -x "$(command -v java)" ]; then
+  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+  wget https://cdn.azul.com/zulu/bin/zulu-repo_1.0.0-2_all.deb -P ~/Downloads
+  sudo apt install ~/Downloads/zulu-repo_1.0.0-2_all.deb
+  sudp apt install \
+    zulu11 \
+    zulu15
+  sudo apt install maven
+fi
+
+## Teamviewer
+if ! [ -x "$(command -v teamviewer)" ]; then
+  wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb -P ~/Downloads
+  sudo apt install ~/Downloads/teamviewer_amd64.deb
+fi
+
+## Mega
+if ! [ -x "$(command -v megasync)" ]; then
+  wget https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/megasync_4.3.3-5.1_amd64.deb -P ~/Downloads
+  sudo apt install ~/Downloads/megasync_4.3.3-5.1_amd64.deb
+  wget https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/nautilus-megasync_3.6.6_amd64.deb -P ~/Downloads
+  sudo apt install ~/Downloads/nautilus-megasync_3.6.6_amd64.deb
+fi
+
+## Regolith
+if ! [ -x "$(command -v regolith-look)" ]; then
+  sudo add-apt-repository ppa:regolith-linux/release
+  sudo apt install \
+    regolith-desktop \
+    i3xrocks-net-traffic \
+    i3xrocks-cpu-usage \
+    i3xrocks-time \
+    feh
+fi
+
+## Oh My ZSH
+if ! [ -x "$(command -v zsh)" ]; then
+  sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  chsh -s $(which zsh)
+fi
+
+## Set default Terminal
+sudo update-alternatives --config x-terminal-emulator
+
+
+
+#########################################################
+# RUST setup
+## install Rust itself and it's ecosystem:
+if ! [ -x "$(command -v rustc)" ]; then
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
+## individual programs:
+cargo install exa 
+
+## programs that need the absolute latest:
+if ! [ -x "$(command -v btm)" ]; then
+  cargo install --git https://github.com/ClementTsang/bottom
+fi
+### bottom can be installed the standard way after upgrade to 0.5.0 as an official release
