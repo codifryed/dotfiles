@@ -16,3 +16,4 @@ i3-wm.bar.font:
 ! 3xrocks.date.format2:	%d.%m.
 ! i3-wm.program.lock:     i3lock-fancy
 i3-wm.program.1:    sleep 2 && feh --bg-fill --no-xinerama ~/Pictures/backgrounds/anime/shell3.png
+Xft.dpi: 116
