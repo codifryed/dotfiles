@@ -24,7 +24,6 @@ sudo apt install \
   neofetch \
   lolcat \
   hollywood \
-  cava \
   cmatrix \
   lm-sensors \
   dos2unix \
@@ -62,6 +61,19 @@ sudo snap install \
   vlc \
   youtube-dl
 
+#########################################################
+# build from source
+
+## CAVA
+if ! [ -x "$(command -v cava)" ]; then
+  sudo apt install libfftw3-dev libasound2-dev libncursesw5-dev libpulse-dev libtool automake libiniparser-dev
+  export CPPFLAGS=-I/usr/include/iniparser
+  cd ~/.dotfiles/cava
+  ./autogen.sh
+  ./configure
+  make
+  make install
+fi
 
 #########################################################
 # external APT PPAs:

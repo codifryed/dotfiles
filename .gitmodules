@@ -5,3 +5,8 @@
 [submodule "config/kitty/kitty-themes"]
 	path = config/kitty/kitty-themes
 	url = https://github.com/dexpota/kitty-themes.git
+	ignore = dirty
+[submodule "cava"]
+	path = cava
+	url = https://github.com/karlstav/cava.git
+	ignore = dirty
