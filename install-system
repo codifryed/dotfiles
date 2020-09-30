@@ -6,7 +6,7 @@ set -e
 
 #########################################################
 # APT programs:
-sudo apt install \
+sudo apt install -y \
   wget \
   zsh \
   git \
@@ -40,39 +40,36 @@ sudo apt install \
 
 #########################################################
 # SNAP Programs:
-sudo snap install --classic \
-  code \
-  deja-dup \
-  foobar2000 \
-  gitkraken \
-  intellij-idea-ultimate \
-  node \
-  pycharm-community \
-  skype
+sudo snap install --classic code
+sudo snap install --classic deja-dup
+sudo snap install --classic foobar2000
+sudo snap install --classic gitkraken
+sudo snap install --classic node
+sudo snap install --classic pycharm-community
+sudo snap install --classic skype
 
-sudo snap install \
-  gimp \
-  htop \
-  inkdrop \
-  keepassxc \
-  libreoffice \
-  onlyoffice-desktopeditors \
-  spotify \
-  vlc \
-  youtube-dl
+sudo snap install gimp
+sudo snap install htop
+sudo snap install inkdrop
+sudo snap install keepassxc
+sudo snap install libreoffice
+sudo snap install onlyoffice-desktopeditors
+sudo snap install spotify
+sudo snap install vlc
+sudo snap install youtube-dl
 
 #########################################################
 # build from source
 
 ## CAVA
 if ! [ -x "$(command -v cava)" ]; then
-  sudo apt install libfftw3-dev libasound2-dev libncursesw5-dev libpulse-dev libtool automake libiniparser-dev
+  sudo apt install -y libfftw3-dev libasound2-dev libncursesw5-dev libpulse-dev libtool automake libiniparser-dev
   export CPPFLAGS=-I/usr/include/iniparser
   cd ~/.dotfiles/cava
   ./autogen.sh
   ./configure
   make
-  make install
+  sudo make install
 fi
 
 #########################################################
@@ -81,12 +78,12 @@ fi
 ## Google Chrome
 if ! [ -x "$(command -v google-chrome)" ]; then
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/Downloads
-  sudo apt install ~/Downloads/google-chrome-stable_current_amd64.deb
+  sudo apt install -y ~/Downloads/google-chrome-stable_current_amd64.deb
 fi
 
 ## Docker
 if ! [ -x "$(command -v docker)" ]; then
-  sudo apt install \
+  sudo apt install -y \
     apt-transport-https \
     ca-certificates \
     curl \
@@ -99,38 +96,39 @@ if ! [ -x "$(command -v docker)" ]; then
    $(lsb_release -cs) \
    stable"
   sudo apt update
-  sudo apt install docker-ce docker-ce-cli containerd.io
+  sudo apt install -y docker-ce docker-ce-cli containerd.io
 fi
 
 ## Azul Java
 if ! [ -x "$(command -v java)" ]; then
   sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
   wget https://cdn.azul.com/zulu/bin/zulu-repo_1.0.0-2_all.deb -P ~/Downloads
-  sudo apt install ~/Downloads/zulu-repo_1.0.0-2_all.deb
-  sudp apt install \
+  sudo apt install -y ~/Downloads/zulu-repo_1.0.0-2_all.deb
+  sudo apt update
+  sudo apt install -y \
     zulu11 \
     zulu15
-  sudo apt install maven
+  sudo apt install -y maven
 fi
 
 ## Teamviewer
 if ! [ -x "$(command -v teamviewer)" ]; then
   wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb -P ~/Downloads
-  sudo apt install ~/Downloads/teamviewer_amd64.deb
+  sudo apt install -y ~/Downloads/teamviewer_amd64.deb
 fi
 
 ## Mega
 if ! [ -x "$(command -v megasync)" ]; then
   wget https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/megasync_4.3.3-5.1_amd64.deb -P ~/Downloads
-  sudo apt install ~/Downloads/megasync_4.3.3-5.1_amd64.deb
+  sudo apt install -y ~/Downloads/megasync_4.3.3-5.1_amd64.deb
   wget https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/nautilus-megasync_3.6.6_amd64.deb -P ~/Downloads
-  sudo apt install ~/Downloads/nautilus-megasync_3.6.6_amd64.deb
+  sudo apt install -y ~/Downloads/nautilus-megasync_3.6.6_amd64.deb
 fi
 
 ## Regolith
 if ! [ -x "$(command -v regolith-look)" ]; then
   sudo add-apt-repository ppa:regolith-linux/release
-  sudo apt install \
+  sudo apt install -y \
     regolith-desktop \
     i3xrocks-net-traffic \
     i3xrocks-cpu-usage \
@@ -157,10 +155,10 @@ if ! [ -x "$(command -v rustc)" ]; then
 fi
 
 ## individual programs:
-cargo install exa 
+~/.cargo/bin/cargo install exa 
 
 ## programs that need the absolute latest:
 if ! [ -x "$(command -v btm)" ]; then
-  cargo install --git https://github.com/ClementTsang/bottom
+  ~/.cargo/bin/cargo install --git https://github.com/ClementTsang/bottom
 fi
 ### bottom can be installed the standard way after upgrade to 0.5.0 as an official release
