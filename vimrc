@@ -28,6 +28,9 @@ set scrolloff=4 " Display at least 3 lines around you cursor
 set ignorecase " Ignore case when searching 
 set smartcase " If there is an uppercase in your search term 
 
+" Keep indentation from previous line
+set autoindent
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
