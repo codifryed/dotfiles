@@ -19,6 +19,7 @@
     ~/.config/regolith: config/regolith/
     ~/.config/rofi: config/rofi/
     ~/.config/kitty: config/kitty/
+    ~/.Xresources-regolith:
     ~/bin:
 
 - shell:
