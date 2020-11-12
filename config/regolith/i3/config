@@ -531,6 +531,9 @@ set_from_resource $i3-wm.bar.status_command i3-wm.bar.status_command i3xrocks -u
 
 # The bar configuration
 bar {
+  # disable wheel scrolling through workspaces:
+  bindsym button4 nop
+  bindsym button5 nop
   position $i3-wm.bar.position
   font $i3-wm.bar.font
   separator_symbol $i3-wm.bar.separator
