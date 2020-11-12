@@ -214,19 +214,19 @@ wintypes:
         # shadow: Give those windows shadow
         shadow = false;
         # opacity: Default opacity for the type of windows.
-        opacity = 0.85;
+        opacity = 0.5;
         # focus: Whether to always consider windows of this type focused.
         focus = true;
     };
     dock = { shadow = true; }
     dnd = { shadow = false; }
     popup_menu = { 
-        opacity = 0.8; 
+        opacity = 0.5; 
         shadow = false;
         fade = false;
     }
     dropdown_menu = { 
-        opacity = 0.8; 
+        opacity = 0.5; 
         fade = false;
     }
 };
