@@ -1,3 +1,4 @@
+neofetch
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -87,8 +88,8 @@ plugins=(
 	git 
 	ubuntu
 	npm
-	mvn
-	golang
+#	mvn
+#	golang
 	extract
 	docker
 	docker-compose
@@ -142,7 +143,7 @@ alias free='free -m'
 # doesn't seem to really work for me
 #bindkey -v
 
-neofetch
+#neofetch
 #fortune | cowsay -f tux | lolcat
 
 # other sources
