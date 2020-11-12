@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-fill --no-xinerama '/home/theguy/Pictures/backgrounds/anime/shell3.png' 
+feh --no-fehbg --bg-fill --no-xinerama '/home/theguy/.config/regolith/backgrounds/shell3.png' 
