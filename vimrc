@@ -24,7 +24,7 @@ set tabstop=2
 
 set incsearch " Highlight search results when typing 
 set hlsearch " Highlight search results 
-set scrolloff=4 " Display at least 3 lines around you cursor 
+set scrolloff=10 " Display at least 3 lines around you cursor 
 set ignorecase " Ignore case when searching 
 set smartcase " If there is an uppercase in your search term 
 
