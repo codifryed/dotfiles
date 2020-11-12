@@ -534,6 +534,8 @@ bar {
   # disable wheel scrolling through workspaces:
   bindsym button4 nop
   bindsym button5 nop
+  # set bar to hide (dock|hide|invisible) as default
+  mode hide
   position $i3-wm.bar.position
   font $i3-wm.bar.font
   separator_symbol $i3-wm.bar.separator
