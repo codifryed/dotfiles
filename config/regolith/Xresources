@@ -10,7 +10,7 @@ i3-wm.bar.workspace.inactive.border.color:      #BFBAB000
 i3-wm.client.focused.color.border:              #00FF00
 i3-wm.gaps.inner.size:	20
 i3-wm.gaps.outer.size:	0
-i3-wm.gaps.smart:       on
+! i3-wm.gaps.smart: on
 i3-wm.bar.trayoutput:	primary
 i3-wm.bar.font:         
 ! 3xrocks.date.format2:	%d.%m.

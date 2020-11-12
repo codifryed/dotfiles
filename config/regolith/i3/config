@@ -391,8 +391,8 @@ gaps outer $i3-wm.gaps.outer.size
 #gaps top 20
 
 # Only enable gaps on a workspace when there is at least one container
-set_from_resource $i3-wm.gaps.smart i3-wm.gaps.smart on
-smart_gaps $i3-wm.gaps.smart
+#set_from_resource $i3-wm.gaps.smart i3-wm.gaps.smart on
+#smart_gaps $i3-wm.gaps.smart
 
 # Enable popup during fullscreen
 set_from_resource $i3-wm.gaps.popup_during_fullscreen i3-wm.gaps.popup_during_fullscreen smart
