@@ -129,7 +129,7 @@ fi
 if ! [ -x "$(command -v regolith-look)" ]; then
   sudo add-apt-repository ppa:regolith-linux/release
   sudo apt install -y \
-    regolith-desktop \
+    regolith-desktop-complete \
     i3xrocks-net-traffic \
     i3xrocks-cpu-usage \
     i3xrocks-time \
