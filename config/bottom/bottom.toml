@@ -144,11 +144,11 @@ graph_color="Magenta"
 
 # The default widget layout:
 [[row]]
-  ratio=10
+  ratio=12
   [[row.child]]
   type="cpu"
 [[row]]
-    ratio=10
+    ratio=15
     [[row.child]]
       ratio=4
       type="mem"
@@ -159,7 +159,7 @@ graph_color="Magenta"
       [[row.child.child]]
         type="disk"
 [[row]]
-  ratio=20
+  ratio=18
   [[row.child]]
     type="net"
   [[row.child]]
