@@ -142,6 +142,11 @@ if ! [ -x "$(command -v zsh)" ]; then
   chsh -s $(which zsh)
 fi
 
+## ZSH power10k Theme
+if ! [ -x "$(command -v p10k)" ]; then
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+fi
+
 ## Set default Terminal
 sudo update-alternatives --config x-terminal-emulator
 

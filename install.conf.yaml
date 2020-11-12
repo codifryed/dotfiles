@@ -11,6 +11,7 @@
     ~/.ideavimrc:
     ~/.vimrc:
     ~/.zshrc:
+    ~/.p10k.zsh:
     ~/.fonts:
     ~/.config/bottom: config/bottom/
     ~/.config/cava: config/cava/
