@@ -140,7 +140,7 @@ fi
 ## Oh My ZSH
 if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
   chsh -s $(which zsh)
-  zsh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --keep-zshrc"
+  zsh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --keep-zshrc --unattended"
 fi
 
 ## ZSH power10k Theme (zsh should already be set)
