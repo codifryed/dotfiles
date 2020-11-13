@@ -18,4 +18,4 @@ i3-wm.bar.font:
 i3-wm.program.1:    sleep 2 && feh --bg-fill --no-xinerama ~/.config/regolith/backgrounds/shell3.png
 # Best to use multiples of 96. 192 for ex is 200%
 Xft.dpi: 116
-i3xrocks.date.format2: %d.%m %H:%M
+i3xrocks.date.format2: %d.%m. %H:%M
