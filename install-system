@@ -138,7 +138,7 @@ if ! [ -x "$(command -v regolith-look)" ]; then
 fi
 
 ## Oh My ZSH
-if ! [ -x "$(command -v zsh)" ]; then
+if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
   sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   chsh -s $(which zsh)
 fi
