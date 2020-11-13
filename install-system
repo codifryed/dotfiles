@@ -120,8 +120,8 @@ fi
 
 ## Mega
 if ! [ -x "$(command -v megasync)" ]; then
-  wget https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/megasync_4.3.3-5.1_amd64.deb -P ~/Downloads
-  sudo apt install -y ~/Downloads/megasync_4.3.3-5.1_amd64.deb
+  wget https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/megasync_4.3.5-9.1_amd64.deb -P ~/Downloads
+  sudo apt install -y ~/Downloads/megasync_4.3.5-9.1_amd64.deb
   wget https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/nautilus-megasync_3.6.6_amd64.deb -P ~/Downloads
   sudo apt install -y ~/Downloads/nautilus-megasync_3.6.6_amd64.deb
 fi
@@ -168,3 +168,7 @@ if ! [ -x "$(command -v btm)" ]; then
   ~/.cargo/bin/cargo install --git https://github.com/ClementTsang/bottom
 fi
 ### bottom can be installed the standard way after upgrade to 0.5.0 as an official release
+
+########################################################
+# Other Customisaztions
+## Keychron Fn key fix:
