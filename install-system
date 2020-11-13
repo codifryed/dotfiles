@@ -56,7 +56,8 @@ sudo snap install libreoffice
 sudo snap install onlyoffice-desktopeditors
 sudo snap install spotify
 sudo snap install vlc
-sudo snap install youtube-dl
+# youtube-dl has been removed. have to find out how to install this manually
+##sudo snap install youtube-dl
 
 #########################################################
 # build from source
