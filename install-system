@@ -172,3 +172,7 @@ fi
 ########################################################
 # Other Customisaztions
 ## Keychron Fn key fix:
+if [ ! -f /etc/modprobe.d/hid_apple.conf ]; then
+  sudo sh -c 'echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple.conf'
+  sudo update-initramfs -u
+fi
