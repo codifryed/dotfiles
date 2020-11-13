@@ -139,12 +139,12 @@ fi
 
 ## Oh My ZSH
 if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
-  sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   chsh -s $(which zsh)
+  zsh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --keep-zshrc"
 fi
 
-## ZSH power10k Theme
-if ! [ -x "$(command -v p10k)" ]; then
+## ZSH power10k Theme (zsh should already be set)
+if ! [ -f ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
