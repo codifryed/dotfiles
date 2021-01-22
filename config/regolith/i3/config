@@ -535,7 +535,7 @@ bar {
   bindsym button4 nop
   bindsym button5 nop
   # set bar to hide (dock|hide|invisible) as default
-  mode hide
+  mode dock
   position $i3-wm.bar.position
   font $i3-wm.bar.font
   separator_symbol $i3-wm.bar.separator
