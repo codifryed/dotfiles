@@ -450,6 +450,28 @@ for_window [urgent=latest] focus
 # rounded corners:
 #border_radius 2
 
+# Workspaces to specific Monitor:
+# Monitor setup:
+#   HDMI-0 AOC Portrait mode
+#set $lMon HDMI-0
+#   HDMI-2 AOC Portrait mode
+set $lMon HDMI-2
+#   DP-1 Benq Landscape
+#set $rMon DP-1
+#   DP-2 AOC 33 Main
+#   DP-1 AOC 33 Main
+set $mMon DP-1
+workspace "$ws1" output $lMon
+workspace "$ws2" output $mMon
+workspace "$ws3" output $lMon
+workspace "$ws4" output $mMon
+workspace "$ws5" output $mMon
+workspace "$ws6" output $mMon
+workspace "$ws7" output $lMon
+workspace "$ws8" output $mMon
+workspace "$ws9" output $mMon
+workspace "$ws10" output $lMon
+
 ############################################################################
 ######################################################################################
 ################################################################################################
