@@ -12,6 +12,7 @@ nnoremap <leader>rn :action RenameElement<CR>
 nnoremap <leader>rp :action IntroduceParameter<CR>
 nnoremap <leader>fu :action FindUsages<CR>
 nnoremap <leader>df :action ToggleDistractionFreeMode<CR>
+nnoremap <leader>pr :action TogglePresentationMode<CR>
 nnoremap <leader>go :action GotoDeclaration<CR>
 
 " Misc
