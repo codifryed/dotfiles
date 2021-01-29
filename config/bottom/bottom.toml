@@ -21,8 +21,8 @@ hide_avg_cpu = false
 #left_legend = false
 
 # Whether to set CPU% on a process to be based on the total CPU or just current usage.
-#current_usage = false
-current_usage = true
+current_usage = false
+#current_usage = true
 
 # Whether to group processes with the same name together by default.
 #group_processes = false
