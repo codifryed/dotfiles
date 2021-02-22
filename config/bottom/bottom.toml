@@ -75,10 +75,10 @@ default_time_value = 120000
 is_list_ignored = true
 list = ["loop"]
 
-[temp_filter]
+#[temp_filter]
 
-is_list_ignored = false
-list = ["coretemp: Core"]
+#is_list_ignored = false
+#list = ["coretemp: Core"]
 
 ##########################################################
 
