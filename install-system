@@ -42,7 +42,8 @@ sudo apt install -y \
   openssh-server \
   ttf-mscorefonts-installer \
   snapd \
-  gnome-tweaks
+  gnome-tweaks \
+  grsync
 
 #########################################################
 # VPN:
