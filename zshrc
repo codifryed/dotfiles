@@ -11,7 +11,7 @@ fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/bin:$HOME/.cargo/bin:$PATH
+export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH
 
 if [ -d ~/bin_local ]; then
     export PATH=$HOME/bin_local:$PATH
