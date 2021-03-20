@@ -125,7 +125,7 @@ if ! [ -x "$(command -v java)" ]; then
   sudo apt update
   sudo apt install -y \
     zulu11 \
-    zulu15
+    zulu16
   sudo apt install -y maven
 fi
 
