@@ -45,6 +45,14 @@ sudo apt install -y \
   gnome-tweaks \
   grsync
 
+########################################################
+# Virtualbox
+sudo apt install -y \
+  virtualbox \
+  virtualbox-guest-additions-iso
+sudo adduser $USER vboxusers
+########################################################
+
 #########################################################
 # VPN:
 #sudo apt install -y openconnect network-manager-openconnect network-manager-openconnect-gnome
