@@ -159,5 +159,12 @@ zen() {
     command zenith -r 1500
 }
 
+osupdate() {
+    command sudo apt update
+    command sudo apt upgrade
+    command sudo snap refresh
+    command flatpak upgrade
+}
+
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/p10k.zsh.
 [[ ! -f ~/dotfiles/p10k.zsh ]] || source ~/dotfiles/p10k.zsh
