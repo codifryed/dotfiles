@@ -57,3 +57,5 @@ set autoindent
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set mouse=nicr
 
+" color scheme
+colorscheme darkblue
