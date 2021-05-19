@@ -200,6 +200,10 @@ fi
 ### bottom can be installed the standard way after upgrade to 0.5.0 as an official release
 
 ########################################################
+# PyPi Programs:
+pip3 install bpytop --upgrade
+
+########################################################
 # Other Customisaztions
 ## Keychron Fn key fix:
 if [ ! -f /etc/modprobe.d/hid_apple.conf ]; then
