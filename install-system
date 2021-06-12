@@ -181,6 +181,9 @@ fi
 ## Set default Terminal
 sudo update-alternatives --config x-terminal-emulator
 
+## LibRatBag - for mouse control (Piper)
+sudo add-apt-repository -y ppa:libratbag-piper/piper-libratbag-git
+sudo apt install -y ratbagd
 
 
 #########################################################
