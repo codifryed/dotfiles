@@ -62,27 +62,33 @@ sudo adduser $USER vboxusers
 # SNAP Programs:
 sudo snap install --classic code
 sudo snap install --classic deja-dup
-sudo snap install --classic foobar2000
+#sudo snap install --classic foobar2000
 sudo snap install --classic gitkraken
 sudo snap install --classic node
 sudo snap install --classic pycharm-community
-sudo snap install --classic skype
 
 sudo snap install gimp
 sudo snap install htop
 sudo snap install inkdrop
+sudo snap connect inkdrop:password-manager-service
 sudo snap install keepassxc
-sudo snap install libreoffice
-sudo snap install onlyoffice-desktopeditors
-sudo snap install spotify
 sudo snap install vlc
-sudo snap install tauon
 # youtube-dl has been removed. have to find out how to install this manually
 ##sudo snap install youtube-dl
 
 #########################################################
 # Flatpak Programs:
 flatpak install org.freedesktop.Piper
+flatpak install com.spotify.Client
+flatpak install org.signal.Signal
+flatpak install org.telegram.desktop
+flatpak install org.freedesktop.Piper
+flatpak install com.skype.Client
+flatpak install com.github.taiko2k.tauonmb
+flatpak install org.gnome.Glade
+flatpak install org.libreoffice.LibreOffice
+flatpak install org.onlyoffice.desktopeditors
+flatpak install us.zoom.Zoom
 
 #########################################################
 # build from source
