@@ -43,8 +43,7 @@ sudo apt install -y \
   ttf-mscorefonts-installer \
   snapd \
   gnome-tweaks \
-  grsync \
-  ratbagd
+  grsync
 
 ########################################################
 # Virtualbox
@@ -182,8 +181,10 @@ fi
 sudo update-alternatives --config x-terminal-emulator
 
 ## LibRatBag - for mouse control (Piper)
-sudo add-apt-repository -y ppa:libratbag-piper/piper-libratbag-git
-sudo apt install -y ratbagd
+if ! [ -x "$(command -v ratbagd)" ]; then
+  sudo add-apt-repository -y ppa:libratbag-piper/piper-libratbag-git
+  sudo apt install -y ratbagd
+fi
 
 
 #########################################################
