@@ -96,6 +96,7 @@ plugins=(
 	extract
 	docker
 	docker-compose
+  aws
 )
 
 source $ZSH/oh-my-zsh.sh
