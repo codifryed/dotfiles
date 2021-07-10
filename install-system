@@ -73,6 +73,8 @@ sudo snap install inkdrop
 sudo snap connect inkdrop:password-manager-service
 sudo snap install keepassxc
 sudo snap install vlc
+sudo snap install tauon
+sudo snap connect tauon:removable-media :removable-media
 # youtube-dl has been removed. have to find out how to install this manually
 ##sudo snap install youtube-dl
 
@@ -84,7 +86,6 @@ flatpak install org.signal.Signal
 flatpak install org.telegram.desktop
 flatpak install org.freedesktop.Piper
 flatpak install com.skype.Client
-flatpak install com.github.taiko2k.tauonmb
 flatpak install org.gnome.Glade
 flatpak install org.libreoffice.LibreOffice
 flatpak install org.onlyoffice.desktopeditors
