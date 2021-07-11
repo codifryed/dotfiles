@@ -81,16 +81,16 @@ sudo snap connect tauon:removable-media :removable-media
 
 #########################################################
 # Flatpak Programs:
-flatpak install org.freedesktop.Piper
-flatpak install com.spotify.Client
-flatpak install org.signal.Signal
-flatpak install org.telegram.desktop
-flatpak install org.freedesktop.Piper
-flatpak install com.skype.Client
-flatpak install org.gnome.Glade
-flatpak install org.libreoffice.LibreOffice
-flatpak install org.onlyoffice.desktopeditors
-flatpak install us.zoom.Zoom
+flatpak install -y org.freedesktop.Piper
+flatpak install -y com.spotify.Client
+flatpak install -y org.signal.Signal
+flatpak install -y org.telegram.desktop
+flatpak install -y org.freedesktop.Piper
+flatpak install -y com.skype.Client
+flatpak install -y org.gnome.Glade
+flatpak install -y org.libreoffice.LibreOffice
+flatpak install -y org.onlyoffice.desktopeditors
+flatpak install -y us.zoom.Zoom
 
 #########################################################
 # build from source
