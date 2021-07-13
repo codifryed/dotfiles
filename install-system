@@ -47,6 +47,11 @@ sudo apt install -y \
   vim-gtk3 \
   dconf-editor
 
+# Preferred Gnome Settings:
+#######################################################
+gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-overview'
+gesttings set org.gnome.shell.extensions.dash-to-dock hot-keys true
+
 ########################################################
 # Virtualbox
 sudo apt install -y \
