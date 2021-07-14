@@ -50,7 +50,7 @@ sudo apt install -y \
 # Preferred Gnome Settings:
 #######################################################
 gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-overview'
-gesttings set org.gnome.shell.extensions.dash-to-dock hot-keys true
+gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys true
 
 ########################################################
 # Virtualbox
