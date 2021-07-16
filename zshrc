@@ -140,6 +140,8 @@ alias lt='exa -aT --color=always --group-directories-first' # tree listing
 alias df='df -h'
 alias free='free -m'
 
+alias ssh='TERM="xterm-256color" ssh'
+
 # bare git repo alias for dotfiles
 #alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
 
