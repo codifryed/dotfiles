@@ -70,9 +70,9 @@ sudo adduser $USER vboxusers
 sudo snap install --classic code
 sudo snap install --classic deja-dup
 #sudo snap install --classic foobar2000
-sudo snap install --classic gitkraken
+#sudo snap install --classic gitkraken
 sudo snap install --classic node
-sudo snap install --classic pycharm-community
+#sudo snap install --classic pycharm-community
 
 sudo snap install gimp
 sudo snap install htop
