@@ -73,6 +73,9 @@ sudo snap install --classic deja-dup
 #sudo snap install --classic gitkraken
 sudo snap install --classic node
 #sudo snap install --classic pycharm-community
+### Need to automatic the install of JetBrains Toolbox and GitKrakren from .deb package
+## to get gitkraken dock icon to work correctly, remove additional confilicting desktop shortcut:
+# sudo mv /usr/share/applications/gitkraken-url-handler.desktop /home/theguy
 
 sudo snap install gimp
 sudo snap install htop
