@@ -182,7 +182,7 @@ if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
 fi
 
 ## ZSH power10k Theme (zsh should already be set)
-if ! [ -f ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
+if ! [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 fi
 
@@ -193,6 +193,12 @@ sudo update-alternatives --config x-terminal-emulator
 if ! [ -x "$(command -v ratbagd)" ]; then
   sudo add-apt-repository -y ppa:libratbag-piper/piper-libratbag-git
   sudo apt install -y ratbagd
+fi
+
+## AppImageLauncher
+if ! [ -x "$(command -v appimageLauncher)" ]; then
+  sudo add-apt-repository -y ppa:appimagelauncher-team/stable
+  sudo apt install -y appimagelauncher
 fi
 
 
