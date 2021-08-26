@@ -18,3 +18,4 @@ nnoremap <leader>go :action GotoDeclaration<CR>
 " Misc
 nnoremap <leader>vr :source ~/.ideavimrc<CR>
 noremap <leader>vr :source ~/.ideavimrc<CR>
+set ideajoin
