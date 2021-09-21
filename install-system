@@ -27,6 +27,8 @@ sudo apt install -y \
   lolcat \
   hollywood \
   cmatrix \
+  espeak \
+  sl \
   lm-sensors \
   dos2unix \
   usb-creator-common \
@@ -216,6 +218,7 @@ fi
 
 ## individual programs:
 ~/.cargo/bin/cargo install exa 
+~/.cargo/bin/cargo install genact 
 
 ## programs that need the absolute latest:
 if ! [ -x "$(command -v btm)" ]; then
