@@ -15,7 +15,7 @@
     ~/.fonts:
     ~/.config/bottom: config/bottom/
     ~/.config/cava: config/cava/
-    ~/.config/neofetch: config/neofetch/
+    ~/.config/neofetch-alt: config/neofetch-alt/
     ~/.config/regolith: config/regolith/
     ~/.config/rofi: config/rofi/
     ~/.config/kitty: config/kitty/
