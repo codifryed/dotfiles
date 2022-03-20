@@ -2,245 +2,112 @@
 
 set -e
 
-# Ubuntu Stuff (20.04 LTS)
+# Arch Stuff
 
 #########################################################
-# APT programs:
-sudo apt install -y \
+# Arch Repo
+sudo pacman -S --needed \
   wget \
-  zsh \
   git \
   vim \
-  net-tools \
-  gufw \
-  gzip \
-  gparted \
-  git \
   gcc \
-  python3 \
-  python3-pip \
+  python \
   p7zip \
-  kitty \
   aspell-de \
-  neofetch \
+  aspell-en \
   imagemagick \
   lolcat \
-  hollywood \
   cmatrix \
-  espeak \
   sl \
-  lm-sensors \
+  lm_sensors \
   dos2unix \
-  usb-creator-common \
   audacity \
   filezilla \
   thunderbird \
-  linux-tools-generic \
-  linux-headers-generic \
-  ubuntu-restricted-extras \
   unrar \
-  rar \
-  libdvd-pkg \
-  openssh-server \
-  ttf-mscorefonts-installer \
-  snapd \
-  gnome-tweaks \
+  libdvdcss \
   grsync \
-  vim-gtk3 \
-  dconf-editor
+  neovim \
+  gimp \
+  htop \
+  keepassxc \
+  vlc \
+  virtualbox \
+  virtualbox-guest-iso \
+  virtualbox-host-dkms \
+  virtualbox-ext-oracle \
+  flatpak \
+  spotify \
+  piper \
+  signal-desktop \
+  telegram-desktop \
+  skypeforlinux-stable-bin \
+  onlyoffice-bin \
+  zoom \
+  google-chrome \
+  chrome-remote-desktop \
+  teamviewer \
+  megasync-bin \
+  appimagelauncher \
+  strawberry \
+  btop \
+  python-poetry \
+  jdk11-openjdk \
+  docker \
+  docker-compose \
+  gitkraken \
+  jetbrains-toolbox \
+  code \
+  nodejs \
+  rustup \
+  exa \
+  genact 
+
+
+# not currently needed for base system:
+  #neofetch \
+  #python-pip \
 
 # Preferred Gnome Settings:
+# Look to see if we can do something similar in KDE (shortcuts for example)
 #######################################################
-gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-overview'
-gsettings set org.gnome.shell.extensions.dash-to-dock hot-keys true
-gsettings set org.gnome.shell.extensions.dash-to-dock hotkeys-overlay false
-gsettings set org.gnome.shell.extensions.dash-to-dock hotkeys-show-dock false
+#gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-overview'
 
 ########################################################
 # Virtualbox
-sudo apt install -y \
-  virtualbox \
-  virtualbox-guest-additions-iso
-sudo adduser $USER vboxusers
+# Guarada has a setting for automatically adding the user to the vboxuser, may not need the following:
+#sudo adduser $USER vboxusers
 ########################################################
 
-#########################################################
-# VPN:
-#sudo apt install -y openconnect network-manager-openconnect network-manager-openconnect-gnome
-#sudo apt install -y openvpn network-manager-openvpn network-manager-openvpn-gnome
+# AUR Stuff (use sparingly)
+########################################################
+# yay is aliased to paru in garuda
+paru -S --needed \
+  inkdrop \
+  cava
 
 #########################################################
-# SNAP Programs:
-sudo snap install --classic code
-sudo snap install --classic deja-dup
-#sudo snap install --classic foobar2000
-#sudo snap install --classic gitkraken
-sudo snap install --classic node
-#sudo snap install --classic pycharm-community
-### Need to automatic the install of JetBrains Toolbox and GitKrakren from .deb package
-## to get gitkraken dock icon to work correctly, remove additional confilicting desktop shortcut:
-# sudo mv /usr/share/applications/gitkraken-url-handler.desktop /home/theguy
+# Flatpak Programs: (after restart of flatpak install)
+# flatpak install -y org.freedesktop.Piper
 
-sudo snap install gimp
-sudo snap install htop
-sudo snap install inkdrop
-sudo snap connect inkdrop:password-manager-service
-sudo snap install keepassxc
-sudo snap install vlc
-# tauon has been a bit unstable and after looking at the code base... rather not use it for now.
-# sudo snap install tauon
-# sudo snap connect tauon:removable-media :removable-media
-# youtube-dl has been removed. have to find out how to install this manually
-##sudo snap install youtube-dl
 
 #########################################################
-# Flatpak Programs:
-flatpak install -y org.freedesktop.Piper
-flatpak install -y com.spotify.Client
-flatpak install -y org.signal.Signal
-flatpak install -y org.telegram.desktop
-flatpak install -y org.freedesktop.Piper
-flatpak install -y com.skype.Client
-flatpak install -y org.gnome.Glade
-flatpak install -y org.libreoffice.LibreOffice
-flatpak install -y org.onlyoffice.desktopeditors
-flatpak install -y us.zoom.Zoom
+## Set default Terminal (needed?)
+#sudo update-alternatives --config x-terminal-emulator
 
-#########################################################
-# build from source
-
-## CAVA
-if ! [ -x "$(command -v cava)" ]; then
-  sudo apt install -y libfftw3-dev libasound2-dev libncursesw5-dev libpulse-dev libtool automake libiniparser-dev
-  export CPPFLAGS=-I/usr/include/iniparser
-  cd ~/.dotfiles/cava
-  ./autogen.sh
-  ./configure
-  make
-  sudo make install
-fi
-
-#########################################################
-# external APT PPAs:
-
-## Google Chrome
-if ! [ -x "$(command -v google-chrome)" ]; then
-  wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -P ~/Downloads
-  sudo apt install -y ~/Downloads/google-chrome-stable_current_amd64.deb
-fi
-
-## Docker
-if ! [ -x "$(command -v docker)" ]; then
-  sudo apt install -y \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-  sudo apt-key fingerprint 0EBFCD88
-  sudo add-apt-repository \
-   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable"
-  sudo apt update
-  sudo apt install -y docker-ce docker-ce-cli containerd.io
-  sudo groupadd docker
-  sudo usermod -aG docker $USER
-  # We have a failure after here when running the script for the first time, need to install docker-compose manually:
-  #newgrp $USER
-  #sudo curl -L "https://github.com/docker/compose/releases/download/1.28.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-  #sudo chmod +x /usr/local/bin/docker-compose
-fi
-
-## Azul Java
-#if ! [ -x "$(command -v java)" ]; then
-#  sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
-#  wget https://cdn.azul.com/zulu/bin/zulu-repo_1.0.0-2_all.deb -P ~/Downloads
-#  sudo apt install -y ~/Downloads/zulu-repo_1.0.0-2_all.deb
-#  sudo apt update
-#  sudo apt install -y \
-#    zulu11 \
-#    zulu16
-#  sudo apt install -y maven
-#fi
-
-## Teamviewer
-if ! [ -x "$(command -v teamviewer)" ]; then
-  wget https://download.teamviewer.com/download/linux/teamviewer_amd64.deb -P ~/Downloads
-  sudo apt install -y ~/Downloads/teamviewer_amd64.deb
-fi
-
-## Mega - unfortunately this needs to currrently be done manually:
-#if ! [ -x "$(command -v megasync)" ]; then
-#  wget https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/megasync_4.3.5-9.1_amd64.deb -P ~/Downloads
-#  sudo apt install -y ~/Downloads/megasync_4.3.5-9.1_amd64.deb
-#  wget https://mega.nz/linux/MEGAsync/xUbuntu_20.04/amd64/nautilus-megasync_3.6.6_amd64.deb -P ~/Downloads
-#  sudo apt install -y ~/Downloads/nautilus-megasync_3.6.6_amd64.deb
-#fi
-
-## Oh My ZSH
-if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
-  chsh -s $(which zsh)
-  zsh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --keep-zshrc --unattended"
-fi
-
-## ZSH power10k Theme (zsh should already be set)
-if ! [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-fi
-
-## Set default Terminal
-sudo update-alternatives --config x-terminal-emulator
-
-## LibRatBag - for mouse control (Piper)
-if ! [ -x "$(command -v ratbagd)" ]; then
-  sudo add-apt-repository -y ppa:libratbag-piper/piper-libratbag-git
-  sudo apt install -y ratbagd
-fi
-
-## AppImageLauncher
-if ! [ -x "$(command -v appimageLauncher)" ]; then
-  sudo add-apt-repository -y ppa:appimagelauncher-team/stable
-  sudo apt install -y appimagelauncher
-fi
 
 ## Additional bluetooth codecs for better audio:
-sudo add-apt-repository ppa:berglh/pulseaudio-a2dp
-sudo apt install -y pulseaudio-modules-bt libldac
+#sudo add-apt-repository ppa:berglh/pulseaudio-a2dp
+#sudo apt install -y pulseaudio-modules-bt libldac
 
-## Strawberry
-if ! [ -x "$(command -v strawberry)" ]; then
-  sudo add-apt-repository ppa:jonaski/strawberry
-  sudo apt install -y strawberry
-fi
-
-
-#########################################################
-# RUST setup
-## install Rust itself and it's ecosystem:
-if ! [ -x "$(command -v rustc)" ]; then
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-fi
-
-## individual programs:
-~/.cargo/bin/cargo install exa 
-~/.cargo/bin/cargo install genact 
-
-## programs that need the absolute latest:
-if ! [ -x "$(command -v btm)" ]; then
-  ~/.cargo/bin/cargo install --git https://github.com/ClementTsang/bottom
-fi
-### bottom can be installed the standard way after upgrade to 0.5.0 as an official release
 
 ########################################################
 # PyPi Programs:
-pip3 install bpytop --upgrade
 
 ########################################################
 # Other Customisaztions
-## Keychron Fn key fix:
-if [ ! -f /etc/modprobe.d/hid_apple.conf ]; then
-  sudo sh -c 'echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple.conf'
-  sudo update-initramfs -u
-fi
+## Keychron Fn key fix: (not needed apparently in arch)
+#if [ ! -f /etc/modprobe.d/hid_apple.conf ]; then
+  #sudo sh -c 'echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple.conf'
+  #sudo update-initramfs -u
+#fi
