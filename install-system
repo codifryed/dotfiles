@@ -109,8 +109,9 @@ paru -S --needed \
 
 ########################################################
 # Other Customisaztions
-## Keychron Fn key fix: (not needed apparently in arch)
-#if [ ! -f /etc/modprobe.d/hid_apple.conf ]; then
-  #sudo sh -c 'echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple.conf'
-  #sudo update-initramfs -u
-#fi
+## Keychron Fn key fix:
+if [ ! -f /etc/modprobe.d/hid_apple.conf ]; then
+  sudo sh -c 'echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple.conf'
+  sudo mkinitcpio -P
+fi
+
