@@ -51,6 +51,7 @@ sudo pacman -S --needed \
   appimagelauncher \
   strawberry \
   btop \
+  discord \
   python-poetry \
   jdk11-openjdk \
   docker \
