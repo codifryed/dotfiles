@@ -115,6 +115,3 @@ if [ ! -f /etc/modprobe.d/hid_apple.conf ]; then
   sudo mkinitcpio -P
 fi
 
-## Grub change on Garuda to use LTS kernel always (recommended by me for now, as I prefer a bit more stability to speed/newness)
-echo If you want to change the default Grub kernel choice, edit: vim /etc/default/grub  
-echo set to last saved, then easy to change
