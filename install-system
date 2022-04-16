@@ -115,3 +115,13 @@ if [ ! -f /etc/modprobe.d/hid_apple.conf ]; then
   sudo mkinitcpio -P
 fi
 
+## Oh My ZSH
+if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
+  chsh -s $(which zsh)
+  zsh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh) --keep-zshrc --unattended"
+fi
+
+## ZSH power10k Theme (zsh should already be set)
+if ! [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+fi
