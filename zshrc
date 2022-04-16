@@ -164,10 +164,8 @@ zen() {
 }
 
 osupdate() {
-    command sudo apt update
-    command sudo apt upgrade
-    command sudo apt autoremove
-    command sudo snap refresh
+    command sudo pacman -Syu
+    command yay -Syu
     command flatpak upgrade
 }
 
