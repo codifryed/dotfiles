@@ -166,7 +166,7 @@ zen() {
 }
 
 osupdate() {
-    command sudo pacman -Syu
+    #command sudo pacman -Syu
     command yay -Syu
     command flatpak upgrade
 }
