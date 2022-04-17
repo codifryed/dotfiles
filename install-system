@@ -62,7 +62,8 @@ sudo pacman -S --needed \
   nodejs \
   rustup \
   exa \
-  genact 
+  genact \
+  jamesdsp
 
 
 # not currently needed for base system:
