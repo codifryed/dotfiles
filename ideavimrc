@@ -5,6 +5,7 @@ set hlsearch " Highlight search results
 set scrolloff=10 " Display at least 3 lines around you cursor
 set ignorecase " Ignore case when searching
 set smartcase " If there is an uppercase in your search term
+set relativenumber number
 
 nnoremap <leader>qf :action ShowIntentionActions<CR>
 nnoremap <leader>fix :action ShowIntentionActions<CR>
