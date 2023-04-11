@@ -2,118 +2,222 @@
 
 set -e
 
-# Arch Stuff
+# Fedora Stuff
+# Free doesn't appear to be installed by default, but non-free twice!
+sudo dnf install \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 
 #########################################################
-# Arch Repo
-sudo pacman -S --needed \
+# Fedora Repo
+sudo dnf -y install \
+  dnf-plugins-core \
   wget \
   git \
-  vim \
+  neovim \
   gcc \
-  python \
   p7zip \
   aspell-de \
   aspell-en \
-  imagemagick \
+  ImageMagick \
   lolcat \
   cmatrix \
-  sl \
+  neofetch \
   lm_sensors \
   dos2unix \
   audacity \
   filezilla \
   thunderbird \
   unrar \
-  libdvdcss \
+  openssh-server \
   grsync \
-  neovim \
+  gparted \
   gimp \
   htop \
   keepassxc \
   vlc \
-  virtualbox \
-  virtualbox-guest-iso \
-  virtualbox-host-dkms \
-  virtualbox-ext-oracle \
-  flatpak \
-  spotify \
-  piper \
-  signal-desktop \
-  telegram-desktop \
-  skypeforlinux-stable-bin \
-  onlyoffice-bin \
-  zoom \
-  google-chrome \
+  google-chrome-stable \
   chrome-remote-desktop \
-  teamviewer \
-  megasync-bin \
-  appimagelauncher \
   strawberry \
+  cava \
+  gnome-tweaks \
   btop \
-  discord \
-  python-poetry \
-  jdk11-openjdk \
-  docker \
-  docker-compose \
-  gitkraken \
-  jetbrains-toolbox \
-  code \
+  python3-pip \
+  java-latest-openjdk-devel \
   nodejs \
-  rustup \
-  exa \
-  genact \
-  jamesdsp
+  util-linux-user \
+  zsh \
+  dconf-editor
+
+# Codecs:
+#######################################################
+sudo dnf -y install gstreamer1-plugins-{bad-\*,good-\*,base} gstreamer1-plugin-openh264 gstreamer1-libav --exclude=gstreamer1-plugins-bad-free-devel
+sudo dnf -y install lame\* --exclude=lame-devel
+sudo dnf -y group upgrade --with-optional Multimedia
+
+# Extensions in the package repo:
+#######################################################
+  #gnome-shell-extension-pop-shell \
+  #gnome-shell-extension-pop-shell-shortcut-overrides \
+sudo dnf -y install \
+  gnome-extensions-app \
+  gnome-shell-extension-appindicator \
+  gnome-shell-extension-blur-my-shell \
+  gnome-shell-extension-no-overview \
+  gnome-shell-extension-user-theme
+  
+
+# Other extensions/packages to install manually:
+# A... Widgets
+# Toolbar organizer
+# Logo Menu
+# jetbrains-toolbox
+
+# Gnome Themes
+#######################################################
+sudo dnf -y install \
+  gnome-shell-theme-flat-remix \
+  flat-remix-theme \
+  flat-remix-icon-theme \
+  breeze-icon-theme \
+  deepin-icon-theme \
+  la-capitaine-icon-theme \
+  papirus-icon-theme \
+  oxygen-cursor-themes \
+  la-capitaine-cursor-theme \
+  breeze-cursor-theme
+
+# Rust toolchain
+#######################################################
+if ! [ -x "$(command -v rustup)" ]; then
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+fi
+
+# Rust programs
+#######################################################
+~/.cargo/bin/cargo install exa 
+~/.cargo/bin/cargo install genact 
 
 
-# not currently needed for base system:
-  #neofetch \
-  #python-pip \
+# JamesDSP for audio processing
+#######################################################
+#if ! [ -x "$(command -v jamesdsp)" ]; then
+#  sudo dnf copr enable arrobbins/JDSP4Linux && \
+#  sudo dnf check-update && \
+#  sudo dnf install jamesdsp
+#fi
 
+# MEGA
+#######################################################
+if ! [ -x "$(command -v megasync)" ]; then
+  wget https://mega.nz/linux/repo/Fedora_37/x86_64/megasync-Fedora_37.x86_64.rpm -P ~/Downloads
+  sudo dnf -y install ~/Downloads/megasync-Fedora_37.x86_64.rpm
+fi
+
+# GitKraken
+#######################################################
+if ! [ -x "$(command -v gitkraken)" ]; then
+  wget https://release.gitkraken.com/linux/gitkraken-amd64.rpm -P ~/Downloads
+  sudo dnf -y install ~/Downloads/gitkraken-amd64.rpm
+fi
+
+# Docker
+#######################################################
+if ! [ -x "$(command -v docker)" ]; then
+  sudo dnf config-manager \
+    --add-repo \
+    https://download.docker.com/linux/fedora/docker-ce.repo
+  sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  sudo systemctl enable docker.service
+  sudo systemctl enable containerd.service
+  sudo systemctl start docker
+  sudo docker run hello-world
+  sudo groupadd docker
+  sudo usermod -aG docker $USER
+
+  # We have a failure after here when running the script for the first time, need to install docker-compose manually:
+  sudo dnf -y install docker-compose
+fi
 sudo usermod -aG docker $USER
 
+# VSCode
+#######################################################
+if ! [ -x "$(command -v code)" ]; then
+  sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+  sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+  #sudo dnf check-update
+  sudo dnf -y install code
+fi
+
+## Teamviewer
+#######################################################
+if ! [ -x "$(command -v teamviewer)" ]; then
+  wget https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm -P ~/Downloads
+  sudo dnf install -y ~/Downloads/teamviewer.x86_64.rpm
+fi
+
+
 # Preferred Gnome Settings:
-# Look to see if we can do something similar in KDE (shortcuts for example)
 #######################################################
 #gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize-or-overview'
 
 ########################################################
 # Virtualbox
-# Guarada has a setting for automatically adding the user to the vboxuser, may not need the following:
-#sudo adduser $USER vboxusers
-########################################################
+if ! [ -x "$(command -v virtualbox)" ]; then
+  cat <<EOF | sudo tee /etc/yum.repos.d/virtualbox.repo 
+[virtualbox]
+name=Fedora $releasever - $basearch - VirtualBox
+baseurl=http://download.virtualbox.org/virtualbox/rpm/fedora/36/\$basearch
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
+EOF
+  
+  sudo dnf -y search virtualbox
+  sudo dnf -y install VirtualBox-7.0
+  sudo usermod -a -G vboxusers $USER
+  newgrp vboxusers
+fi
 
-# AUR Stuff (use sparingly)
+# InkDrop
 ########################################################
-# yay is aliased to paru in garuda
-paru -S --needed \
-  inkdrop \
-  cava
+if ! [ -x "$(command -v inkdrop)" ]; then
+  wget https://api.inkdrop.app/download/linux/rpm -O /tmp/inkdrop.rpm
+  sudo dnf -y install /tmp/inkdrop.rpm
+  rm /tmp/inkdrop.rpm
+fi
 
 #########################################################
 # Flatpak Programs: (after restart of flatpak install)
-# flatpak install -y org.freedesktop.Piper
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+#flatpak install -y org.freedesktop.Piper
+#flatpak install -y org.libreoffice.LibreOffice
+flatpak install -y com.mastermindzh.tidal-hifi
+flatpak install -y com.spotify.Client
+flatpak install -y org.signal.Signal
+flatpak install -y org.telegram.desktop
+flatpak install -y com.skype.Client
+flatpak install -y org.gnome.Glade
+flatpak install -y org.onlyoffice.desktopeditors
+flatpak install -y us.zoom.Zoom
+flatpak install -y com.discordapp.Discord
+flatpak install -y com.system76.Popsicle
 
 
 #########################################################
 ## Set default Terminal (needed?)
 #sudo update-alternatives --config x-terminal-emulator
 
-
-## Additional bluetooth codecs for better audio:
-#sudo add-apt-repository ppa:berglh/pulseaudio-a2dp
-#sudo apt install -y pulseaudio-modules-bt libldac
-
-
 ########################################################
 # PyPi Programs:
+
 
 ########################################################
 # Other Customisaztions
 ## Keychron Fn key fix:
 if [ ! -f /etc/modprobe.d/hid_apple.conf ]; then
   sudo sh -c 'echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple.conf'
-  sudo mkinitcpio -P
+  sudo dracut --force
 fi
 
 ## Oh My ZSH
