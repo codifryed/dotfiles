@@ -143,7 +143,7 @@ alias free='free -m'
 
 alias ssh='TERM="xterm-256color" ssh'
 alias yay='paru'
-alias vi='vim'
+alias vi='nvim'
 
 # bare git repo alias for dotfiles
 #alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
