@@ -166,8 +166,7 @@ zen() {
 }
 
 osupdate() {
-    #command sudo pacman -Syu
-    command paru -Syu
+    command sudo dnf upgrade
     command flatpak upgrade
 }
 
