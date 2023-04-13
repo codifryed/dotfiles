@@ -20,6 +20,7 @@
     ~/.config/rofi: config/rofi/
     ~/.config/kitty: config/kitty/
     ~/.config/fish: config/fish/
+    ~/.config/nvim: config/nvim/
     ~/.Xresources-regolith:
     ~/bin:
 

@@ -15,6 +15,7 @@ sudo dnf -y install \
   git \
   neovim \
   ripgrep \
+  gcc-c++ \
   gcc \
   p7zip \
   aspell-de \
