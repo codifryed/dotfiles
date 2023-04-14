@@ -205,6 +205,7 @@ require('lazy').setup({
       require("nvim-tree").setup {}
     end,
   },
+  { 'xiyaowong/transparent.nvim', opts = {} },
   -- { 'mbbill/undotree', opts = {} },
 
 
