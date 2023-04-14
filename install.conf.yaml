@@ -22,6 +22,7 @@
     ~/.config/fish: config/fish/
     ~/.config/nvim: config/nvim/
     ~/.Xresources-regolith:
+    ~/.tmux.conf:
     ~/bin:
 
 - shell:
