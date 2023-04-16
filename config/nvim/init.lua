@@ -351,6 +351,8 @@ vim.keymap.set("n", "<A-j>", [[<C-w>j]])
 vim.keymap.set("n", "<A-k>", [[<C-w>k]])
 vim.keymap.set("n", "<A-l>", [[<C-w>l]])
 
+vim.keymap.set("n", "o", "o<Esc>k")
+vim.keymap.set("n", "O", "O<Esc>j")
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
