@@ -229,7 +229,7 @@ vim.opt.undofile = true
 
 vim.opt.incsearch = true
 vim.opt.scrolloff = 12
-vim.opt.scrollback = 1000000
+vim.opt.scrollback = 100000
 vim.opt.isfname:append("@-@")
 
 vim.opt.colorcolumn = "120"
