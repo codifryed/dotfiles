@@ -214,6 +214,8 @@ require('lazy').setup({
 -- [[ Setting options ]]
 -- See `:help vim.o`
 
+vim.g.transparent_enabled = true
+
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
