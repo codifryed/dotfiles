@@ -13,6 +13,7 @@
     ~/.zshrc:
     ~/.p10k.zsh:
     ~/.fonts:
+    ~/.tmux/plugins/tpm: tmux/plugins/tpm/
     ~/.config/bottom: config/bottom/
     ~/.config/cava: config/cava/
     ~/.config/neofetch-alt: config/neofetch-alt/
