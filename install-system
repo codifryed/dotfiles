@@ -98,6 +98,7 @@ fi
 #######################################################
 ~/.cargo/bin/cargo install exa 
 ~/.cargo/bin/cargo install genact 
+~/.cargo/bin/cargo install macchina 
 
 
 # JamesDSP for audio processing

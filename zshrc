@@ -1,7 +1,8 @@
 #neofetch -L --kitty --ascii_distro linux 
 #neofetch -L --kitty --ascii_distro popos_small
 #neofetch --off
-neofetch
+#neofetch
+macchina
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]

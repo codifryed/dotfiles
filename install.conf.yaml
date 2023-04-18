@@ -21,6 +21,7 @@
     ~/.config/kitty: config/kitty/
     ~/.config/fish: config/fish/
     ~/.config/nvim: config/nvim/
+    ~/.config/macchina: config/macchina/
     ~/.Xresources-regolith:
     ~/.tmux.conf:
     ~/bin:
