@@ -10,3 +10,6 @@
 	path = cava
 	url = https://github.com/karlstav/cava.git
 	ignore = dirty
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
