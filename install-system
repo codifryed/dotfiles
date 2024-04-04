@@ -34,13 +34,7 @@ sudo pacman -S --needed \
   virtualbox \
   virtualbox-guest-iso \
   virtualbox-host-dkms \
-  virtualbox-ext-oracle \
   signal-desktop \
-  onlyoffice-bin \
-  zoom \
-  google-chrome \
-  chrome-remote-desktop \
-  megasync-bin \
   strawberry \
   btop \
   discord \
@@ -48,16 +42,12 @@ sudo pacman -S --needed \
   jdk11-openjdk \
   docker \
   docker-compose \
-  gitkraken \
-  jetbrains-toolbox \
   code \
   nodejs \
   rust \
   exa \
   genact \
-  ripgrep \
-  macchina \
-  jamesdsp
+  ripgrep
 
 
 # not currently needed for base system:
@@ -81,6 +71,16 @@ sudo adduser $USER vboxusers
 ########################################################
 # yay is aliased to paru in garuda
 yay -S --needed \
+  virtualbox-ext-oracle \
+  onlyoffice-bin \
+  zoom \
+  google-chrome \
+  chrome-remote-desktop \
+  megasync \
+  gitkraken \
+  jetbrains-toolbox \
+  macchina \
+  jamesdsp \
   cava
 
 #########################################################
