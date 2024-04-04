@@ -23,7 +23,6 @@ sudo pacman -S --needed \
   dos2unix \
   audacity \
   filezilla \
-  thunderbird \
   unrar \
   libdvdcss \
   grsync \
@@ -36,19 +35,12 @@ sudo pacman -S --needed \
   virtualbox-guest-iso \
   virtualbox-host-dkms \
   virtualbox-ext-oracle \
-  flatpak \
-  spotify \
-  piper \
   signal-desktop \
-  telegram-desktop \
-  skypeforlinux-stable-bin \
   onlyoffice-bin \
   zoom \
   google-chrome \
   chrome-remote-desktop \
-  teamviewer \
   megasync-bin \
-  appimagelauncher \
   strawberry \
   btop \
   discord \
@@ -60,9 +52,11 @@ sudo pacman -S --needed \
   jetbrains-toolbox \
   code \
   nodejs \
-  rustup \
+  rust \
   exa \
   genact \
+  ripgrep \
+  macchina \
   jamesdsp
 
 
@@ -80,14 +74,13 @@ sudo usermod -aG docker $USER
 ########################################################
 # Virtualbox
 # Guarada has a setting for automatically adding the user to the vboxuser, may not need the following:
-#sudo adduser $USER vboxusers
+sudo adduser $USER vboxusers
 ########################################################
 
 # AUR Stuff (use sparingly)
 ########################################################
 # yay is aliased to paru in garuda
-paru -S --needed \
-  inkdrop \
+yay -S --needed \
   cava
 
 #########################################################
@@ -111,10 +104,10 @@ paru -S --needed \
 ########################################################
 # Other Customisaztions
 ## Keychron Fn key fix:
-if [ ! -f /etc/modprobe.d/hid_apple.conf ]; then
-  sudo sh -c 'echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple.conf'
-  sudo mkinitcpio -P
-fi
+#if [ ! -f /etc/modprobe.d/hid_apple.conf ]; then
+  #sudo sh -c 'echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple.conf'
+  #sudo mkinitcpio -P
+#fi
 
 ## Oh My ZSH
 if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
