@@ -71,7 +71,7 @@ map <leader>vr :source ~/.ideavimrc<CR>
 " a - all modes
 sethandler <C-C> a:ide
 sethandler <C-D> a:vim
-sethandler <C-E> a:vim
+sethandler <C-E> a:ide
 sethandler <C-H> a:vim
 sethandler <C-L> a:vim
 sethandler <C-O> a:vim
