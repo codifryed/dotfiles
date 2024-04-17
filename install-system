@@ -47,7 +47,6 @@ sudo pacman -S --needed \
   rust \
   exa \
   genact \
-  visual-studio-code-bin \
   ripgrep
 
 
@@ -72,15 +71,16 @@ sudo usermod -aG docker $USER
 ########################################################
 # yay is aliased to paru in garuda
 yay -S --needed \
-  virtualbox-ext-oracle \
   onlyoffice-bin \
   zoom \
   google-chrome \
-  megasync-git \
+  megasync-bin \
   gitkraken \
   jetbrains-toolbox \
   jamesdsp \
   cava
+
+  #virtualbox-ext-oracle \
 
 cargo install \
     macchina
