@@ -7,6 +7,7 @@ set -e
 #########################################################
 # Arch Repo
 sudo pacman -S --needed \
+  zsh \
   wget \
   git \
   vim \
@@ -39,14 +40,14 @@ sudo pacman -S --needed \
   btop \
   discord \
   python-poetry \
-  jdk11-openjdk \
+  jdk17-openjdk \
   docker \
   docker-compose \
-  code \
   nodejs \
   rust \
   exa \
   genact \
+  visual-studio-code-bin \
   ripgrep
 
 
@@ -64,7 +65,7 @@ sudo usermod -aG docker $USER
 ########################################################
 # Virtualbox
 # Guarada has a setting for automatically adding the user to the vboxuser, may not need the following:
-sudo adduser $USER vboxusers
+# sudo useradd $USER vboxusers
 ########################################################
 
 # AUR Stuff (use sparingly)
@@ -75,13 +76,14 @@ yay -S --needed \
   onlyoffice-bin \
   zoom \
   google-chrome \
-  chrome-remote-desktop \
-  megasync \
+  megasync-git \
   gitkraken \
   jetbrains-toolbox \
-  macchina \
   jamesdsp \
   cava
+
+cargo install \
+    macchina
 
 #########################################################
 # Flatpak Programs: (after restart of flatpak install)
