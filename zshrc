@@ -1,3 +1,7 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH
+
 #neofetch -L --kitty --ascii_distro linux 
 #neofetch -L --kitty --ascii_distro popos_small
 #neofetch --off
@@ -10,10 +14,6 @@ macchina
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH
 
 if [ -d ~/bin_local ]; then
     export PATH=$HOME/bin_local:$PATH
