@@ -143,7 +143,7 @@ alias df='df -h'
 alias free='free -m'
 
 alias ssh='TERM="xterm-256color" ssh'
-alias yay='paru'
+#alias yay='paru'
 alias vi='nvim'
 
 # bare git repo alias for dotfiles
@@ -168,8 +168,8 @@ zen() {
 
 osupdate() {
     #command sudo pacman -Syu
-    command paru -Syu
-    command flatpak upgrade
+    command yay -Syu
+    #command flatpak upgrade
 }
 
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/p10k.zsh.
