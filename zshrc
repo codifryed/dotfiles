@@ -2,7 +2,6 @@
 #neofetch -L --kitty --ascii_distro popos_small
 #neofetch --off
 #neofetch
-macchina
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -18,6 +17,9 @@ export PATH=$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH
 if [ -d ~/bin_local ]; then
     export PATH=$HOME/bin_local:$PATH
 fi
+
+# run macchina (neofecth replacement) Needed after path change because installed with cargo locally
+macchina
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/theguy/.oh-my-zsh"
