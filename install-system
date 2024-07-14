@@ -103,11 +103,11 @@ fi
 
 # JamesDSP for audio processing
 #######################################################
-#if ! [ -x "$(command -v jamesdsp)" ]; then
-#  sudo dnf copr enable arrobbins/JDSP4Linux && \
-#  sudo dnf check-update && \
-#  sudo dnf install jamesdsp
-#fi
+if ! [ -x "$(command -v jamesdsp)" ]; then
+  sudo dnf copr enable arrobbins/JDSP4Linux && \
+  sudo dnf check-update && \
+  sudo dnf install jamesdsp
+fi
 
 # MEGA
 #######################################################
