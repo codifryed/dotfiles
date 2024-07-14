@@ -5,7 +5,8 @@ set incsearch " Highlight search results when typing
 set scrolloff=12 " Display at least 3 lines around you cursor
 set ignorecase " Ignore case when searching
 set smartcase " If there is an uppercase in your search term
-set relativenumber number
+" Using plugin wich allows us to show both relative and aboslute at the same time
+"set relativenumber number
 set clipboard+=ideaput
 set clipboard+=unnamed
 set breakindent
