@@ -172,5 +172,9 @@ osupdate() {
     #command flatpak upgrade
 }
 
+termstyle() {
+    genact -m bootlog -m botnet -m bruteforce -m julia -m kernel_compile -m memdump -m rkhunter
+}
+
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/p10k.zsh.
 [[ ! -f ~/projects/dotfiles/p10k.zsh ]] || source ~/projects/dotfiles/p10k.zsh
