@@ -174,18 +174,19 @@ fi
 ########################################################
 # Virtualbox
 if ! [ -x "$(command -v virtualbox)" ]; then
-  cat <<EOF | sudo tee /etc/yum.repos.d/virtualbox.repo 
-[virtualbox]
-name=Fedora $releasever - $basearch - VirtualBox
-baseurl=http://download.virtualbox.org/virtualbox/rpm/fedora/36/\$basearch
-enabled=1
-gpgcheck=1
-repo_gpgcheck=1
-gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
-EOF
+#   cat <<EOF | sudo tee /etc/yum.repos.d/virtualbox.repo 
+# [virtualbox]
+# name=Fedora $releasever - $basearch - VirtualBox
+# baseurl=http://download.virtualbox.org/virtualbox/rpm/fedora/36/\$basearch
+# enabled=1
+# gpgcheck=1
+# repo_gpgcheck=1
+# gpgkey=https://www.virtualbox.org/download/oracle_vbox.asc
+# EOF
   
-  sudo dnf -y search virtualbox
-  sudo dnf -y install VirtualBox-7.0
+  # sudo dnf -y search virtualbox
+  # sudo dnf -y install VirtualBox-7.0
+  sudo dnf -y install VirtualBox
   sudo usermod -a -G vboxusers $USER
   newgrp vboxusers
 fi
