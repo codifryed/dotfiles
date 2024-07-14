@@ -47,7 +47,8 @@ sudo pacman -S --needed \
   rust \
   exa \
   genact \
-  ripgrep
+  ripgrep \
+  lazygit
 
 
 # not currently needed for base system:
