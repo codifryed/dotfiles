@@ -177,5 +177,17 @@ termstyle() {
     genact -m bootlog -m botnet -m bruteforce -m julia -m kernel_compile -m memdump -m rkhunter
 }
 
+lg()
+{
+    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+    lazygit "$@"
+
+    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+            cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
+            rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+    fi
+}
+
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/p10k.zsh.
 [[ ! -f ~/projects/dotfiles/p10k.zsh ]] || source ~/projects/dotfiles/p10k.zsh
