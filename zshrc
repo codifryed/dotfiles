@@ -100,7 +100,8 @@ plugins=(
 	extract
 	docker
 	docker-compose
-  aws
+    aws
+    ssh-agent
 )
 
 source $ZSH/oh-my-zsh.sh
