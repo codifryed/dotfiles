@@ -19,6 +19,7 @@
     ~/.config/neofetch-alt: config/neofetch-alt/
     ~/.config/regolith: config/regolith/
     ~/.config/rofi: config/rofi/
+    ~/.config/hypr: config/hypr/
     ~/.config/kitty: config/kitty/
     ~/.config/fish: config/fish/
     ~/.config/nvim: config/nvim/
