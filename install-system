@@ -48,6 +48,9 @@ sudo dnf -y install \
   nodejs \
   util-linux-user \
   zsh \
+  fd \
+  fzf \
+  newt \ #whiptail
   dconf-editor
 
 # Codecs:
@@ -99,6 +102,7 @@ fi
 ~/.cargo/bin/cargo install exa 
 ~/.cargo/bin/cargo install genact 
 ~/.cargo/bin/cargo install macchina 
+~/.cargo/bin/cargo install --locked yazi-fm yazi-cli
 
 
 # JamesDSP for audio processing
@@ -112,16 +116,16 @@ fi
 # MEGA
 #######################################################
 if ! [ -x "$(command -v megasync)" ]; then
-  wget https://mega.nz/linux/repo/Fedora_37/x86_64/megasync-Fedora_37.x86_64.rpm -P ~/Downloads
-  sudo dnf -y install ~/Downloads/megasync-Fedora_37.x86_64.rpm
+  wget https://mega.nz/linux/repo/Fedora_41/x86_64/megasync-Fedora_41.x86_64.rpm -P ~/Downloads
+  sudo dnf -y install ~/Downloads/megasync-Fedora_41.x86_64.rpm
 fi
 
 # GitKraken
 #######################################################
-if ! [ -x "$(command -v gitkraken)" ]; then
-  wget https://release.gitkraken.com/linux/gitkraken-amd64.rpm -P ~/Downloads
-  sudo dnf -y install ~/Downloads/gitkraken-amd64.rpm
-fi
+#if ! [ -x "$(command -v gitkraken)" ]; then
+#  wget https://release.gitkraken.com/linux/gitkraken-amd64.rpm -P ~/Downloads
+#  sudo dnf -y install ~/Downloads/gitkraken-amd64.rpm
+#fi
 
 # LazyGit
 #######################################################
@@ -193,11 +197,11 @@ fi
 
 # InkDrop
 ########################################################
-if ! [ -x "$(command -v inkdrop)" ]; then
-  wget https://api.inkdrop.app/download/linux/rpm -O /tmp/inkdrop.rpm
-  sudo dnf -y install /tmp/inkdrop.rpm
-  rm /tmp/inkdrop.rpm
-fi
+#if ! [ -x "$(command -v inkdrop)" ]; then
+#  wget https://api.inkdrop.app/download/linux/rpm -O /tmp/inkdrop.rpm
+#  sudo dnf -y install /tmp/inkdrop.rpm
+#  rm /tmp/inkdrop.rpm
+#fi
 
 #########################################################
 # Flatpak Programs: (after restart of flatpak install)
@@ -212,7 +216,7 @@ flatpak install -y com.skype.Client
 flatpak install -y org.gnome.Glade
 flatpak install -y org.onlyoffice.desktopeditors
 flatpak install -y us.zoom.Zoom
-flatpak install -y com.discordapp.Discord
+#flatpak install -y com.discordapp.Discord
 flatpak install -y com.system76.Popsicle
 
 
@@ -227,10 +231,10 @@ flatpak install -y com.system76.Popsicle
 ########################################################
 # Other Customisaztions
 ## Keychron Fn key fix:
-if [ ! -f /etc/modprobe.d/hid_apple.conf ]; then
-  sudo sh -c 'echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple.conf'
-  sudo dracut --force
-fi
+#if [ ! -f /etc/modprobe.d/hid_apple.conf ]; then
+#  sudo sh -c 'echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple.conf'
+#  sudo dracut --force
+#fi
 
 ## Oh My ZSH
 if [ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]; then
@@ -240,5 +244,14 @@ fi
 
 ## ZSH power10k Theme (zsh should already be set)
 if ! [ -d ~/.oh-my-zsh/custom/themes/powerlevel10k ]; then
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+fi
+
+#Setup NeoVim
+if ! [ -d ~/.config/astronvim ]; then
+  git clone https://github.com/AstroNvim/template ~/.config/astronvim
+fi
+
+if whiptail --title "Hyprland" --yesno "Do you want to run the Kool Hyprland Fedora Install Script?" 5 80; then
+  sh <(curl -L https://raw.githubusercontent.com/JaKooLit/Fedora-Hyprland/main/auto-install.sh)
 fi
