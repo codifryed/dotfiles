@@ -218,6 +218,10 @@ flatpak install -y org.onlyoffice.desktopeditors
 flatpak install -y us.zoom.Zoom
 #flatpak install -y com.discordapp.Discord
 flatpak install -y com.system76.Popsicle
+flatpak install -y dev.vencord.Vesktop
+flatpak install -y io.github.peazip.PeaZip
+flatpak install -y io.missioncenter.MissionCenter
+flatpak install -y org.openshot.OpenShot
 
 
 #########################################################
