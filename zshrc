@@ -149,8 +149,11 @@ alias free='free -m'
 alias ssh='TERM="xterm-256color" ssh'
 alias yay='paru'
 alias vi='nvim'
+alias vim='nvim'
 alias avi="NVIM_APPNAME=astronvim nvim"
 alias nvi="NVIM_APPNAME=normalvim nvim"
+
+alias ld='lazydocker'
 
 # bare git repo alias for dotfiles
 #alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
