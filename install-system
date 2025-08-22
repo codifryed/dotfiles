@@ -63,12 +63,12 @@ sudo dnf -y group upgrade --with-optional Multimedia
 #######################################################
   #gnome-shell-extension-pop-shell \
   #gnome-shell-extension-pop-shell-shortcut-overrides \
-sudo dnf -y install \
-  gnome-extensions-app \
-  gnome-shell-extension-appindicator \
-  gnome-shell-extension-blur-my-shell \
-  gnome-shell-extension-no-overview \
-  gnome-shell-extension-user-theme
+#sudo dnf -y install \
+#  gnome-extensions-app \
+#  gnome-shell-extension-appindicator \
+#  gnome-shell-extension-blur-my-shell \
+#  gnome-shell-extension-no-overview \
+#  gnome-shell-extension-user-theme
   
 
 # Other extensions/packages to install manually:
@@ -79,17 +79,17 @@ sudo dnf -y install \
 
 # Gnome Themes
 #######################################################
-sudo dnf -y install \
-  gnome-shell-theme-flat-remix \
-  flat-remix-theme \
-  flat-remix-icon-theme \
-  breeze-icon-theme \
-  deepin-icon-theme \
-  la-capitaine-icon-theme \
-  papirus-icon-theme \
-  oxygen-cursor-themes \
-  la-capitaine-cursor-theme \
-  breeze-cursor-theme
+#sudo dnf -y install \
+#  gnome-shell-theme-flat-remix \
+#  flat-remix-theme \
+#  flat-remix-icon-theme \
+#  breeze-icon-theme \
+#  deepin-icon-theme \
+#  la-capitaine-icon-theme \
+#  papirus-icon-theme \
+#  oxygen-cursor-themes \
+#  la-capitaine-cursor-theme \
+#  breeze-cursor-theme
 
 # Rust toolchain
 #######################################################
@@ -116,8 +116,8 @@ fi
 # MEGA
 #######################################################
 if ! [ -x "$(command -v megasync)" ]; then
-  wget https://mega.nz/linux/repo/Fedora_41/x86_64/megasync-Fedora_41.x86_64.rpm -P ~/Downloads
-  sudo dnf -y install ~/Downloads/megasync-Fedora_41.x86_64.rpm
+  wget https://mega.nz/linux/repo/Fedora_41/x86_64/megasync-Fedora_42.x86_64.rpm -P ~/Downloads
+  sudo dnf -y install ~/Downloads/megasync-Fedora_42.x86_64.rpm
 fi
 
 # GitKraken
@@ -141,7 +141,7 @@ if ! [ -x "$(command -v docker)" ]; then
   sudo dnf config-manager \
     --add-repo \
     https://download.docker.com/linux/fedora/docker-ce.repo
-  sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+  sudo dnf -y install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-buildx docker-compose-plugin
   sudo systemctl enable docker.service
   sudo systemctl enable containerd.service
   sudo systemctl start docker
@@ -165,10 +165,10 @@ fi
 
 ## Teamviewer
 #######################################################
-if ! [ -x "$(command -v teamviewer)" ]; then
-  wget https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm -P ~/Downloads
-  sudo dnf install -y ~/Downloads/teamviewer.x86_64.rpm
-fi
+#if ! [ -x "$(command -v teamviewer)" ]; then
+  #wget https://download.teamviewer.com/download/linux/teamviewer.x86_64.rpm -P ~/Downloads
+  #sudo dnf install -y ~/Downloads/teamviewer.x86_64.rpm
+#fi
 
 
 # Preferred Gnome Settings:
@@ -209,11 +209,11 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 #flatpak install -y org.freedesktop.Piper
 #flatpak install -y org.libreoffice.LibreOffice
 flatpak install -y com.mastermindzh.tidal-hifi
-flatpak install -y com.spotify.Client
+#flatpak install -y com.spotify.Client
 flatpak install -y org.signal.Signal
-flatpak install -y org.telegram.desktop
-flatpak install -y com.skype.Client
-flatpak install -y org.gnome.Glade
+#flatpak install -y org.telegram.desktop
+#flatpak install -y com.skype.Client
+#flatpak install -y org.gnome.Glade
 flatpak install -y org.onlyoffice.desktopeditors
 flatpak install -y us.zoom.Zoom
 #flatpak install -y com.discordapp.Discord
@@ -252,6 +252,6 @@ if ! [ -d ~/.config/astronvim ]; then
   git clone https://github.com/AstroNvim/template ~/.config/astronvim
 fi
 
-if whiptail --title "Hyprland" --yesno "Do you want to run the Kool Hyprland Fedora Install Script?" 5 80; then
-  sh <(curl -L https://raw.githubusercontent.com/JaKooLit/Fedora-Hyprland/main/auto-install.sh)
-fi
+#if whiptail --title "Hyprland" --yesno "Do you want to run the Kool Hyprland Fedora Install Script?" 5 80; then
+#  sh <(curl -L https://raw.githubusercontent.com/JaKooLit/Fedora-Hyprland/main/auto-install.sh)
+#fi
